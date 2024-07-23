@@ -1,0 +1,95 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+}
+
+android {
+    namespace 'com.thiago.dogs'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.thiago.dogs"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+
+
+
+
+dependencies {
+
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.activity
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.palette.ktx
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+
+    // ViewModel
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    // ViewModel utilities for Compose
+    implementation libs.androidx.lifecycle.viewmodel.compose
+    // LiveData
+    implementation libs.androidx.lifecycle.livedata.ktx
+    // Annotation processor
+    kapt libs.androidx.lifecycle.compiler
+
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.room.ktx
+    kapt libs.androidx.room.compiler
+    implementation libs.kotlinx.coroutines.core
+
+    implementation libs.androidx.navigation.fragment.ktx
+    implementation libs.androidx.navigation.ui.ktx
+
+
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.adapter.rxjava2
+
+    implementation libs.rxjava.v2221
+    implementation libs.rxandroid
+
+
+
+    implementation libs.glide
+    kapt libs.compiler
+
+    implementation libs.androidx.preference.ktx
+
+    implementation libs.firebase.core
+    implementation libs.androidx.multidex
+
+    implementation libs.androidx.swiperefreshlayout
+
+
+}
